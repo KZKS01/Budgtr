@@ -59,7 +59,7 @@ module.exports = [
     {
       date: 'April 3',
       name: 'Groceries',
-      from: 'Merchant Jack's',
+      from: "Merchant Jack's",
       amount: -76,
       tags: ['groceries'],
     },
