@@ -3,6 +3,8 @@ const Budgets = require('./models/budget');
 const app = express();
 const port = 3000;
 
+app.use(express.urlencoded({extended: false})) 
+
 app.use(express.static('public')); //middleware: tells the server to the request and look at public folder, 
 //so that the links for <link>, <script>, etc. doesn't need /public in the route, look at show.ejs line 7
 
@@ -19,9 +21,18 @@ app.get('/budget/new', function(req, res){
     res.render('new.ejs');
 })
 
+//PUT /budget/:index - Update
+app.post('/budget/:index', function(req, res){
+    //set the budget object to updated version in array
+    Budgets[req.params.index] = req.body;
+    console.log(req.body);
+    res.redirect('/budget');
+})
+
 //POST /budget - Create
 app.post('/budget', function(req, res){
-    res.send('This page takes data');
+    Budgets.push(req.body);
+    res.redirect('/budget');
 })
 
 //GET /budget/:index - Show
