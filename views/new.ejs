@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/skeleton.css" />
+    <title>New Budget Page</title>
+</head>
+<body>
+    <h1>Add a New Budget</h1>
+    <div class="container">
+        <form action="/budget" method="post">
+            <label>
+                <input type="text" name="date" placeholder="e.g. April 1">
+            </label>
+            <label> 
+                <input type="text" name="name" placeholder="e.g. Income">
+            </label>
+            <label>
+                <input type="text" name="amount" placeholder="e.g. 1000">
+            </label>
+            <label>
+                <input type="text" name="from" placeholder="e.g. e.g. Old Glory Insurance">
+            </label>
+            <label>
+                <input type="submit" value="Add New Budget">
+            </label>
+        </form>
+    </div>
+</body>
+</html>

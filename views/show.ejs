@@ -6,24 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/normalize.css" />
     <link rel="stylesheet" href="/skeleton.css" />
-    <title>Fruits Index Page</title>
+    <title>Budgets Index Page</title>
 </head>
 <body>
-    <nav>
-        <a href="/fruits/new">Add a New Fruit</a>
-    </nav>
-    <h1>Here are all the fruits</h1>
-    
-    <ul>        
-        <% for(let i = 0; i < fruits.length; i++) { %>
-            <li>
-                <!-- whatever is in href will be put directly in the url -->
-                <a href="/fruits/<%= i %>">  
-                    <%= fruits[i].name %> 
-                </a>
-            </li> 
-        <% } %> 
-    </ul>
-
+    <% console.log(Budget); %> 
+    <div class="container">
+    <h1><%= Budget.name %></h1> 
+    <a href="/budget"> <button>back</button></a>
+    <dl>        
+        <!-- Budget in the following lines in from server.js line 30-->
+        <dt style="font-weight: bold;">Date:</dt>
+        <dd> <%= Budget.date %></dd>
+        <dt style="font-weight: bold;">Name: </dt>
+        <dd> <%= Budget.name %></dd>
+        <dt style="font-weight: bold;">From: </dt>
+        <dd> <%= Budget.from %></dd>
+        <dt style="font-weight: bold;">Amount:</dt>
+        <dd> <%= Budget.amount %></dd>
+        <dt style="font-weight: bold;">Tags:</dt>
+        <dd> <%= Budget.tags %></dd>
+    </dl>
+    </div>
 </body>
 </html>

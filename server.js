@@ -1,25 +1,33 @@
 const express = require('express');
+const Budgets = require('./models/budget');
 const app = express();
 const port = 3000;
 
-//GET /budgets - Index
-app.get('/budgets', function(req, res){
-    res.send('budgets page');
+app.use(express.static('public')); //middleware: tells the server to the request and look at public folder, 
+//so that the links for <link>, <script>, etc. doesn't need /public in the route, look at show.ejs line 7
+
+app.get('/', function(req, res){
+    res.redirect('/budget');
+})
+//GET /budget - Index
+app.get('/budget', function(req, res){
+    res.render('index.ejs', {Budget: Budgets});
 });
 
-//GET /budgets/new - New
-app.get('/budgets/new', function(req, res){
-    res.send('Add new budgets');
+//GET /budget/new - New
+app.get('/budget/new', function(req, res){
+    res.render('new.ejs');
 })
 
-//POST /budgets - Create
-app.post('/budgets', function(req, res){
+//POST /budget - Create
+app.post('/budget', function(req, res){
     res.send('This page takes data');
 })
 
-//GET /budgets/:index - Show
-app.get('/budgets/:index', function(req,res){
-    res.send('budgets index page');
+//GET /budget/:index - Show
+app.get('/budget/:index', function(req,res){
+    const budget = Budgets[req.params.index];
+    res.render('show.ejs', {Budget: budget}); //original line 30
 })
 
 app.listen(port, function(){

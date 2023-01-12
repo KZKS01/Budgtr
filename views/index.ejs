@@ -6,24 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/normalize.css" />
     <link rel="stylesheet" href="/skeleton.css" />
-    <title>Fruits Index Page</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>Budgtr Index Page</title>
 </head>
 <body>
-    <nav>
-        <a href="/fruits/new">Add a New Fruit</a>
-    </nav>
-    <h1>Here are all the fruits</h1>
-    
-    <ul>        
-        <% for(let i = 0; i < fruits.length; i++) { %>
-            <li>
-                <!-- whatever is in href will be put directly in the url -->
-                <a href="/fruits/<%= i %>">  
-                    <%= fruits[i].name %> 
+    <h1>Budgtr ALL</h1>
+    <a href="/budget/new"> <button>Add New Budget</button></a>
+    <div class="container"></div>
+    <table>      
+        <% for(let i = 0; i < Budget.length; i++) { %>
+            <tr> 
+                <td><%= Budget[i].date %></td>
+                <td>
+                    <!-- whatever is in href will be put directly in the url -->
+                <a href="/budget/<%= i %>">  
+                    <%= Budget[i].name %> 
                 </a>
-            </li> 
+                </td>
+                <td><%= Budget[i].amount %></td>
+            </tr> 
+
         <% } %> 
-    </ul>
+        
+    </table>
 
 </body>
 </html>
